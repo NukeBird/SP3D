@@ -9,6 +9,8 @@ HunterGate(
 
 project(SP3D VERSION 0.1)
 
+option(BUILD_TESTS "Build tests" ON) #TODO: switch default value to "OFF"
+
 file(
 	GLOB_RECURSE 
 	SOURCE_LIST
@@ -22,3 +24,7 @@ find_package(glm REQUIRED)
 
 add_library(${PROJECT_NAME} STATIC ${SOURCE_LIST})
 target_link_libraries(${PROJECT_NAME} PUBLIC glm)
+
+if(BUILD_TESTS)
+    add_subdirectory(test)
+endif(BUILD_TESTS)
