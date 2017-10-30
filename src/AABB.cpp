@@ -14,6 +14,11 @@ namespace SP3D
 		m_max = glm::max(a, b);
 	}
 
+	bool AABB::operator==(const AABB& o) const
+	{
+		return (m_min == o.m_min) && (m_max == o.m_max);
+	}
+
 	void AABB::extend(const glm::vec3& point)
 	{
 		m_min = glm::min(m_min, point);

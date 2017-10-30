@@ -12,6 +12,9 @@ namespace SP3D
 		//Builds AABB that contain points a and b
 		AABB(const glm::vec3& a, const glm::vec3& b);
 
+		//Compares two AABBs
+		bool operator ==(const AABB& o) const;
+
 		//Includes point to AABB volume
 		void extend(const glm::vec3& point);
 
