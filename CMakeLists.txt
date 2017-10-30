@@ -17,4 +17,8 @@ file(
 	"src/*.h"
 )
 
+hunter_add_package(glm)
+find_package(glm REQUIRED)
+
 add_library(${PROJECT_NAME} STATIC ${SOURCE_LIST})
+target_link_libraries(${PROJECT_NAME} PUBLIC glm)
