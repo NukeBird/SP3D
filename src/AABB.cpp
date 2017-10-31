@@ -2,6 +2,12 @@
 
 namespace SP3D
 {
+	AABB::AABB()
+	{
+		m_min = { -0.5, -0.5, -0.5 };
+		m_max = {  0.5,  0.5,  0.5 };
+	}
+
 	AABB::AABB(const AABB& o)
 	{
 		m_min = o.m_min;

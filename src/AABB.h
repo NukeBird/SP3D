@@ -7,6 +7,10 @@ namespace SP3D
 	class AABB final
 	{
 	public:
+		//Builds AABB that contain unit sphere
+		//Same result as AABB({-0.5, -0.5, -0.5}, {0.5, 0.5, 0.5})
+		AABB();
+
 		AABB(const AABB& o);
 
 		//Builds AABB that contain points a and b
