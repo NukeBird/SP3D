@@ -120,7 +120,7 @@ TEST(AABB, Translate)
 	EXPECT_EQ(aabb, SP3D::AABB(min + v, max + v));
 }
 
-TEST(AABB, AABBIntersection)
+TEST(AABB, Intersection)
 {
 	SP3D::AABB a;
 	SP3D::AABB b
