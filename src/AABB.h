@@ -22,8 +22,7 @@ namespace SP3D
 		//Includes point to AABB volume
 		void extend(const glm::vec3& point);
 
-		///TODO: Write a description.
-		///My English sucks as usual
+		//Extend AABB by another's bounding volume
 		void extend(const AABB& o);
 
 		//Get AABB's min point
