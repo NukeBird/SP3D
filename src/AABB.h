@@ -1,5 +1,6 @@
 #pragma once
 #include <glm/glm.hpp>
+#include "Ray.hpp"
 
 namespace SP3D
 {
@@ -30,6 +31,9 @@ namespace SP3D
 
 		//Checks intersection between two AABBs
 		bool intersect(const AABB& o) const;
+
+		//Checks intersection AABB x Ray
+		bool intersect(const Ray& r) const;
 
 		//Get AABB's min point
 		glm::vec3 get_min() const;
