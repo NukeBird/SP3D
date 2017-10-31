@@ -150,7 +150,27 @@ TEST(AABB, AABBIntersection)
 	EXPECT_TRUE(a.intersect(d));
 }
 
-TEST(AABB, AABBRayIntersection)
+TEST(AABB, RayIntersection)
 {
 	SP3D::AABB aabb;
+	SP3D::Ray ray
+	(
+		{0, 0, 0},
+		{1, 0, 0}
+	);
+	
+	//ray inside AABB
+	EXPECT_TRUE(aabb.intersect(ray));
+
+	ray.origin = { -1, 0, 0 };
+	ray.direction = { 1, 0, 0 };
+
+	//ray outside AABB
+	EXPECT_TRUE(aabb.intersect(ray));
+
+	ray.origin = { -1, 0, 0 };
+	ray.direction = { -1, 0, 0 };
+
+	//ray outside AABB, no intersection
+	EXPECT_FALSE(aabb.intersect(ray));
 }
