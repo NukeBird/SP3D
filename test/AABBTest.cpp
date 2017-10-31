@@ -149,3 +149,8 @@ TEST(AABB, AABBIntersection)
 	//d completely inside a
 	EXPECT_TRUE(a.intersect(d));
 }
+
+TEST(AABB, AABBRayIntersection)
+{
+	SP3D::AABB aabb;
+}
