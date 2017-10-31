@@ -59,8 +59,6 @@ namespace SP3D
 	{
 		glm::vec3 dirfrac(1.0f / r.direction);
 
-		glm::vec3 m_max;
-
 		float t1 = (m_min.x - r.origin.x)*dirfrac.x;
 		float t2 = (m_max.x - r.origin.x)*dirfrac.x;
 		float t3 = (m_min.y - r.origin.y)*dirfrac.y;
