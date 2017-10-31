@@ -15,10 +15,7 @@ TEST(AABB, BuildFromTwoPoints)
 
 TEST(AABB, GetCenter)
 {
-	glm::vec3 a(-0.5, -0.5, -0.5);
-	glm::vec3 b( 0.5,  0.5,  0.5);
-
-	SP3D::AABB aabb(a, b);
+	SP3D::AABB aabb;
 
 	EXPECT_EQ(aabb.get_center(), glm::vec3(0.0, 0.0, 0.0));
 }
@@ -97,4 +94,15 @@ TEST(AABB, OperatorEqualTo)
 	SP3D::AABB b(min, max);
 
 	EXPECT_EQ(a, b);
+}
+
+//Empty constructor will add unit sphere inside AABB volume
+TEST(AABB, EmptyConstructor)
+{
+	SP3D::AABB aabb;
+
+	glm::vec3 min(-0.5, -0.5, -0.5);
+	glm::vec3 max( 0.5,  0.5,  0.5);
+
+	EXPECT_EQ(aabb, SP3D::AABB(min, max));
 }
