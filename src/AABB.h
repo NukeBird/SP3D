@@ -28,6 +28,9 @@ namespace SP3D
 		//Translates AABB by v
 		void translate(const glm::vec3& v);
 
+		//Checks intersection between two AABBs
+		bool intersect(const AABB& o) const;
+
 		//Get AABB's min point
 		glm::vec3 get_min() const;
 

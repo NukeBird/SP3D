@@ -43,6 +43,18 @@ namespace SP3D
 		m_max += v;
 	}
 
+	bool AABB::intersect(const AABB & o) const
+	{
+		if ((m_max.x < o.m_min.x) || (m_min.x > o.m_max.x) ||
+			(m_max.y < o.m_min.y) || (m_min.y > o.m_max.y) ||
+			(m_max.z < o.m_min.z) || (m_min.z > o.m_max.z))
+		{
+			return false;
+		}
+
+		return true;
+	}
+
 	glm::vec3 AABB::get_min() const
 	{
 		return m_min;
