@@ -50,11 +50,14 @@ TEST(AABB, GetDiagonal)
 
 	aabb = SP3D::AABB(a, b);
 
-	if (glm::min(a, b) == b)
-		std::swap(a, b); //I'm too lazy :>
+	glm::vec3 expected_min(5, 0.43, 1);
+	glm::vec3 expected_max(9.34, 34, 25.6);
+	glm::vec3 expected_diagonal = expected_max - expected_min;
 		
+	EXPECT_EQ(aabb.get_min(), expected_min);
+	EXPECT_EQ(aabb.get_max(), expected_max);
 	EXPECT_EQ(aabb, SP3D::AABB(a, b));
-	EXPECT_EQ(aabb.get_diagonal(), b - a);
+	EXPECT_EQ(aabb.get_diagonal(), expected_diagonal);
 }
 
 TEST(AABB, ExtendByPoint)
