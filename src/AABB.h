@@ -25,6 +25,9 @@ namespace SP3D
 		//Extend AABB by another's bounding volume
 		void extend(const AABB& o);
 
+		//Translates AABB by v
+		void translate(const glm::vec3& v);
+
 		//Get AABB's min point
 		glm::vec3 get_min() const;
 

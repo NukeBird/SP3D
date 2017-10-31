@@ -37,6 +37,12 @@ namespace SP3D
 		extend(o.m_max);
 	}
 
+	void AABB::translate(const glm::vec3& v)
+	{
+		m_min += v;
+		m_max += v;
+	}
+
 	glm::vec3 AABB::get_min() const
 	{
 		return m_min;
