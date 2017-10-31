@@ -88,3 +88,13 @@ TEST(AABB, ExtendByAABB)
 	EXPECT_EQ(aabb, SP3D::AABB(min, max));
 }
 
+TEST(AABB, OperatorEqualTo)
+{
+	glm::vec3 min(-1, -1, -1);
+	glm::vec3 max(1, 1, 1);
+
+	SP3D::AABB a(min, max);
+	SP3D::AABB b(min, max);
+
+	EXPECT_EQ(a, b);
+}
