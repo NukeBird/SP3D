@@ -63,7 +63,7 @@ TEST(AABB, GetDiagonal)
 TEST(AABB, ExtendByPoint)
 {
 	glm::vec3 min(-1, -1, -1);
-	glm::vec3 max(1, 1, 1);
+	glm::vec3 max( 1,  1,  1);
 
 	SP3D::AABB aabb(min, max);
 
@@ -74,5 +74,17 @@ TEST(AABB, ExtendByPoint)
 
 	EXPECT_EQ(aabb.get_min(), expected_min);
 	EXPECT_EQ(aabb, SP3D::AABB(expected_min, max));
+}
+
+TEST(AABB, ExtendByAABB)
+{
+	glm::vec3 zero( 0, 0,  0);
+	glm::vec3 min(-1, -1, -1);
+	glm::vec3 max( 1,  1,  1);
+
+	SP3D::AABB aabb(zero, max);
+	aabb.extend(SP3D::AABB(min, zero));
+
+	EXPECT_EQ(aabb, SP3D::AABB(min, max));
 }
 
