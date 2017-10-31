@@ -106,3 +106,16 @@ TEST(AABB, EmptyConstructor)
 
 	EXPECT_EQ(aabb, SP3D::AABB(min, max));
 }
+
+TEST(AABB, Translate)
+{
+	glm::vec3 min(-1, -1, -1);
+	glm::vec3 max( 1,  1,  1);
+
+	SP3D::AABB aabb(min, max);
+
+	glm::vec3 v(10, -4, 0);
+	aabb.translate(v);
+
+	EXPECT_EQ(aabb, SP3D::AABB(min + v, max + v));
+}
