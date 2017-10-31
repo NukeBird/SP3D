@@ -7,7 +7,7 @@ TEST(AABB, BuildFromTwoPoints)
 	glm::vec3 min(-1, -1, -1);
 	glm::vec3 max( 1,  1,  1);
 
-	SP3D::AABB aabb(min, max);
+	SP3D::AABB aabb(max, min);
 
 	EXPECT_EQ(aabb.get_min(), min);
 	EXPECT_EQ(aabb.get_max(), max);
@@ -56,3 +56,20 @@ TEST(AABB, GetDiagonal)
 	EXPECT_EQ(aabb, SP3D::AABB(a, b));
 	EXPECT_EQ(aabb.get_diagonal(), b - a);
 }
+
+TEST(AABB, ExtendByPoint)
+{
+	glm::vec3 min(-1, -1, -1);
+	glm::vec3 max(1, 1, 1);
+
+	SP3D::AABB aabb(min, max);
+
+	glm::vec3 point(-4, -3, 1);
+	aabb.extend(point);
+
+	glm::vec3 expected_min(-4, -3, -1);
+
+	EXPECT_EQ(aabb.get_min(), expected_min);
+	EXPECT_EQ(aabb, SP3D::AABB(expected_min, max));
+}
+
