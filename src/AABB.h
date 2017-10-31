@@ -1,6 +1,6 @@
 #pragma once
 #include <glm/glm.hpp>
-#include "Ray.hpp"
+#include "Ray.h"
 
 namespace SP3D
 {
