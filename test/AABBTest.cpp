@@ -36,8 +36,8 @@ TEST(AABB, GetDiagonal)
 {
 	SP3D::AABB aabb
 	(
-		glm::vec3(0.0, 0.0, 0.0),
-		glm::vec3(6.0, 0.0, 0.0)
+		{ 0.0, 0.0, 0.0 },
+		{ 6.0, 0.0, 0.0 }
 	);
 
 	EXPECT_EQ(aabb.get_diagonal(), glm::vec3(6.0, 0.0, 0.0)); 
@@ -118,4 +118,34 @@ TEST(AABB, Translate)
 	aabb.translate(v);
 
 	EXPECT_EQ(aabb, SP3D::AABB(min + v, max + v));
+}
+
+TEST(AABB, AABBIntersection)
+{
+	SP3D::AABB a;
+	SP3D::AABB b
+	(
+		{ -10, -10, -10 }, 
+		{ -0.6, -0.6, -0.6 }
+	);
+
+	EXPECT_FALSE(a.intersect(b));
+	EXPECT_TRUE(a.intersect(a));
+
+	SP3D::AABB c
+	(
+		{ 0, 0, 0 },
+		{-24, -5, 2 }
+	);
+
+	EXPECT_TRUE(a.intersect(c));
+
+	SP3D::AABB d
+	(
+		{ -0.4, -0.4, -0.4 },
+		{  0.4,  0.4,  0.4 }
+	);
+
+	//d completely inside a
+	EXPECT_TRUE(a.intersect(d));
 }
